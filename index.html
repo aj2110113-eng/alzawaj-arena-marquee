@@ -395,10 +395,10 @@
             line-height: 1.8;
         }
 
-        /* Menu Section - UPDATED with Black Background */
+        /* Menu Section - UPDATED to White Background */
         .menu {
-            background: var(--black);
-            color: var(--white);
+            background: var(--white);
+            color: var(--black);
             position: relative;
             border-top: 5px solid var(--gold);
             border-bottom: 5px solid var(--gold);
@@ -416,26 +416,25 @@
                     0deg,
                     transparent,
                     transparent 2px,
-                    rgba(212,175,55,0.03) 2px,
-                    rgba(212,175,55,0.03) 4px
+                    rgba(212,175,55,0.02) 2px,
+                    rgba(212,175,55,0.02) 4px
                 );
             pointer-events: none;
         }
 
         .menu .section-title {
-            color: var(--white);
+            color: var(--black);
             position: relative;
             z-index: 2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .menu .section-title::after {
             background: var(--gold);
-            box-shadow: 0 0 20px var(--gold);
+            box-shadow: 0 0 20px rgba(212,175,55,0.5);
         }
 
         .menu .section-subtitle {
-            color: var(--gold);
+            color: #555;
             position: relative;
             z-index: 2;
             font-size: 1.6rem;
@@ -452,12 +451,12 @@
         }
 
         .menu-category {
-            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            background: var(--white);
             padding: 50px 40px;
             border-radius: 0;
             border: 3px solid var(--gold);
             transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
         }
@@ -469,7 +468,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(212,175,55,0.05) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(212,175,55,0.03) 0%, transparent 100%);
             opacity: 0;
             transition: opacity 0.4s ease;
         }
@@ -480,20 +479,28 @@
 
         .menu-category:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(212,175,55,0.3);
-            border-color: var(--white);
+            box-shadow: 0 20px 50px rgba(212,175,55,0.25);
+            border-color: var(--black);
         }
 
         .menu-category h3 {
             font-size: 2.5rem;
-            color: var(--gold);
+            color: var(--black);
             margin-bottom: 35px;
             text-align: center;
             border-bottom: 3px solid var(--gold);
             padding-bottom: 25px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .menu-category h3::before {
+            content: '◆';
+            display: block;
+            color: var(--gold);
+            font-size: 2rem;
+            margin-bottom: 15px;
         }
 
         .menu-category ul {
@@ -503,11 +510,11 @@
         .menu-category li {
             padding: 18px 0;
             font-size: 1.35rem;
-            border-bottom: 1px solid rgba(212,175,55,0.25);
+            border-bottom: 1px solid rgba(212,175,55,0.3);
             position: relative;
             padding-left: 40px;
             transition: all 0.3s ease;
-            color: #e8e8e8;
+            color: var(--black);
             font-weight: 400;
         }
 
@@ -532,7 +539,7 @@
 
         .menu-category li:hover::before {
             transform: scale(1.3);
-            text-shadow: 0 0 10px var(--gold);
+            filter: drop-shadow(0 0 5px var(--gold));
         }
 
         /* Gallery Section - Enhanced */
@@ -587,9 +594,25 @@
             opacity: 1;
         }
 
-        /* Why Choose Us Section - Enhanced */
+        /* Why Choose Us Section - UPDATED to Black Background */
         .why-choose {
-            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            background: var(--black);
+            color: var(--white);
+            border-top: 5px solid var(--gold);
+            border-bottom: 5px solid var(--gold);
+        }
+
+        .why-choose .section-title {
+            color: var(--white);
+        }
+
+        .why-choose .section-title::after {
+            background: var(--gold);
+            box-shadow: 0 0 20px var(--gold);
+        }
+
+        .why-choose .section-subtitle {
+            color: var(--gold);
         }
 
         .features-grid {
@@ -603,19 +626,35 @@
         .feature-item {
             text-align: center;
             padding: 50px 35px;
-            background: white;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             border-radius: 0;
             transition: all 0.4s ease;
-            border-left: 6px solid var(--gold);
-            border-right: 6px solid var(--gold);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 3px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, rgba(212,175,55,0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-item:hover::before {
+            opacity: 1;
         }
 
         .feature-item:hover {
-            background: var(--royal-blue);
-            color: var(--white);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(30,58,138,0.3);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(212,175,55,0.4);
+            border-color: var(--white);
         }
 
         .feature-item i {
@@ -626,19 +665,21 @@
         }
 
         .feature-item:hover i {
-            transform: scale(1.3);
-            color: var(--white);
+            transform: scale(1.3) rotate(10deg);
+            filter: drop-shadow(0 0 15px var(--gold));
         }
 
         .feature-item h3 {
             font-size: 1.6rem;
             margin-bottom: 15px;
             letter-spacing: 1px;
+            color: var(--white);
         }
 
         .feature-item p {
             font-size: 1.1rem;
             line-height: 1.8;
+            color: #ccc;
         }
 
         /* Contact Section - Enhanced */
@@ -942,7 +983,7 @@
         </div>
     </section>
 
-    <!-- Menu Section - UPDATED DESIGN -->
+    <!-- Menu Section - WHITE BACKGROUND -->
     <section class="menu scroll-animate" id="menu">
         <h2 class="section-title">Our Event Menu</h2>
         <p class="section-subtitle">Exquisite Culinary Delights</p>
@@ -1012,7 +1053,7 @@
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
+    <!-- Why Choose Us Section - BLACK BACKGROUND -->
     <section class="why-choose scroll-animate" id="why-choose">
         <h2 class="section-title">Why Choose Us</h2>
         <p class="section-subtitle">Excellence in Every Detail</p>
